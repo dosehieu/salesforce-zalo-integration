@@ -1,0 +1,124 @@
+body, pre {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+    font-size: 13px;
+    color: #535353;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.chat-border {
+    border: 1px solid #c0c0c0;
+}
+.icon-button {
+    background-color: #FFFFFF;
+    width: 32px;
+    height: 32px;
+    border-radius: 5px;
+}
+.icon-button:hover{
+    cursor: pointer;
+    color: #014486;
+    border-color: #014486;
+}
+.active {
+    color: #014486;
+    border-color: #014486;
+    box-shadow: 0px 0px 4px 1px #014486;
+}
+
+.chat-wrap{
+    height: 358px;
+    overflow: auto;
+    border-radius: 5px 5px 0px 0px;
+}
+.chat-box{
+    width: 100%;
+    resize: none;
+}
+.chat-box:focus-visible{
+    outline: none;
+}
+.chat-button{
+    background-color: #f3f3f3;
+    border-top: none;
+    border-bottom: none;
+}
+
+.client-msg-body{
+    background-color: #f3f3f3;
+    border-radius: 10px 10px 10px 0px;
+    max-width: 500px;
+    white-space: break-spaces;
+    width: fit-content;
+}
+.agent-msg-body{
+    background-color: #014486;
+    color: white;
+    border-radius: 10px 10px 0px 10px;
+    max-width: 500px;
+    white-space: break-spaces;
+    width: fit-content;
+}
+.ml-1 {
+    margin-left: 5px;
+}
+.client-avatar{
+    width: 38px;
+    height: 38px;
+    margin-right: 5px;
+}
+.file-title{
+    background-color: #f3f3f3;
+}
+.file-preview{
+    width: 300px;
+    height: 150px;
+    border-bottom: 1px solid #dee2e6;
+}
+.icon-preview{
+    margin-left: 10px; 
+    margin-right: 5px; 
+    font-size: 18px;
+}
+.wrap-preview :hover{
+    background-color: #00000082;
+    cursor: pointer;
+}
+.icon-preview-large{
+    background-color: unset !important;
+}
+.icon-preview-hover {
+    display: none;
+    background-color: unset !important;
+}
+    
+.file-preview:hover .icon-preview-hover {
+    display: block;
+}
+
+.file-preview:hover .img-preview {
+    filter: brightness(0.6);
+}
+
+.icon-preview-hover{
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 35%;
+    left: 46%;
+}
+
+.img-preview {
+    width: 300px;
+    height: 150px;
+    background-position: center center;
+    background-size: cover;
+}
+.emoji-picker{
+    position: absolute;
+    bottom: 0px;
+    left: 34px;
+    height: 315px;
+    --emoji-size: 1rem;
+    --input-font-size : 13px
+}

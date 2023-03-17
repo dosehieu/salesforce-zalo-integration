@@ -8,7 +8,11 @@ app.set("view engine", 'ejs');
 
 //routes
 app.get('/', (req,res) =>{
-    res.render('index');
+    res.render('chat');
+});
+
+app.get('/detail', (req,res) =>{
+    res.render('detail');
 });
 
 app.get('/index', (req,response) =>{
@@ -49,5 +53,18 @@ app.get('/index', (req,response) =>{
     
 });
 
+app.use('/public', express.static('public'));
+
+//init socket 
+var server = require('http').createServer(app);
+var io = require('socket.io')(server, {
+    allowEIO3: true // false by default
+  });
+io.on('connection', function (socket) {
+    socket.on('send', function (data) {
+        io.sockets.emit('send', {agentId: data.agentId, zaloUserId: data.zaloUserId, type: "text", text: "reply from clent"});
+    });
+});
+
 //port
-app.listen(3000, console.log("Listening at port 3000..."))
+server.listen(8080, console.log("Listening at port 8080..."))

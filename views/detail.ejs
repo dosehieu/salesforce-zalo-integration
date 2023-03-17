@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" style="overflow: hidden !important;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple nodejs app</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
+</head>
+
+<body >
+    <div>Zalo User</div>
+    <div id="name"></div>
+    <div>Avatar</div>
+    <div id="avatar"></div>
+    <div>Request Time</div>
+    <div id="requestTime"></div>
+    <div>Waiting time</div>
+    <div id="waitingTime"></div>
+    <div>Start time</div>
+    <div id="startTime"></div>
+    <div>Count</div>
+    <div id="count"></div>
+    <div>Status</div>
+    <div id="status"></div>
+    
+</body>
+
+<script>
+    var params = location.href.split('?')[1].split('&');
+    data = {};
+    for (x in params)
+    {
+        data[params[x].split('=')[0]] = params[x].split('=')[1];
+    }    
+    $("#count").text(params.length);
+    $("#name").text(data.name);
+    $("#avatar").text(data.avatar);
+    $("#requestTime").text(data.requesttime);
+    $("#waitingTime").text(data.waitingtime);
+    $("#startTime").text(data.starttime);
+    $("#status").text(data.status);
+</script>
+
+</html>

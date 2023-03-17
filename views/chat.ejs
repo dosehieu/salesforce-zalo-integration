@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple nodejs app</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+    <link rel="stylesheet" href="/public/css/chat.css" />
+</head>
+<style>
+
+</style>
+<body style="overflow-x: hidden;">
+    <div class="chatting">
+        <div class="chat-wrap chat-border">
+            <div class="chat-start text-center pb-2 pt-4" style="border-bottom: 1px solid #c0c0c0;">
+                <i class="fa fa-commenting" aria-hidden="true"></i><span> Chat started by</span> <span id="ownerId"></span> - <span id="startTime">startTime</span>
+            </div>
+            <div class="chat-body p-3">
+            </div>
+            <div class="chat-end text-center pt-2 pb-4" style="border-top: 1px solid #c0c0c0;">
+                <i class="fa-solid fa-comment-slash"></i><span> Chat ended by</span> <span id="ownerId"></span> - <span id="startTime">startEnd</span>
+            </div>
+        </div>
+       <div class="chat-button chat-border p-1" >
+            <div class="d-flex justify-content-between">
+                <div class="chat-button-feature d-flex justify-content-between" style="width: 70px;">
+                    <div id="file-button" class="icon-button d-flex justify-content-center align-items-center chat-border">
+                        <i  class="fa fa-paperclip" title="Attach file" aria-hidden="true"></i>
+                    </div>
+                    <div style="position: relative;">
+                        <emoji-picker class="emoji-picker" style="display: none;"></emoji-picker>
+                        <div class="icon-button d-flex justify-content-center align-items-center chat-border emoji-button" >
+                            <i class="fa-regular fa-face-smile-beam" title="Emoji"></i>
+                        </div>
+                    </div>
+                    
+                </div>
+                <button class="btn btn-sm btn-danger" style="width: 90px;">End Chat</button>
+            </div>
+       </div>
+       <textarea id="chat-box" class="chat-box chat-border p-2" placeholder="Type a message..." style="border-radius: 0px 0px 5px 5px;" rows="4"></textarea>
+    </div>
+    <input id="file-input" hidden type="file" />
+    <pre id="preview"></pre>
+</body>
+
+<!-- Client mustache -->
+<script id="client-text" type="x-tmpl-mustache">
+    <div class="client-msg justify-content-start mb-2">
+        <div class="d-flex">
+            <img src="{{avatar}}" alt="avt" class="client-avatar"/>
+            <div>
+                <pre class="client-msg-body p-2">{{text}}</pre>
+                <div class="ml-1">{{name}} • {{time}}</div>
+            </div>
+        </div>
+    </div>
+</script>
+<script id="client-img" type="x-tmpl-mustache">
+    <div class="client-msg d-flex justify-content-start mb-2">
+        <div class="d-flex">
+            <img src="{{avatar}}" alt="avt" class="client-avatar"/>
+            <div>
+                <div class="client-msg-img border" style="position: relative">
+                    <div class="wrap-preview">
+                        <div class="file-preview">
+                            <div class="img-preview" style="background-image: url('{{url}}')"></div>
+                            <i class="fa-solid fa-eye icon-preview-hover"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="file-title d-flex align-items-center p-2">
+                        <i class="fa-solid fa-image icon-preview" style="color: green"></i>
+                        <div>{{fileName}}.jpg</div>
+                    </div>
+                </div>
+                <div class="ml-1">{{name}} • {{time}}</div>
+            </div>
+        </div>
+    </div>
+</script>
+<script id="client-file" type="x-tmpl-mustache">
+    <div class="client-msg d-flex justify-content-start mb-2">
+        <div class="d-flex">
+            <img src="{{avatar}}" alt="avt" class="client-avatar"/>
+            <div>
+                <div class="client-msg-file border" style="position: relative">
+                    <div class="wrap-preview">
+                        <div class="file-preview d-flex align-items-center justify-content-center">
+                            <i class="fa-solid fa-file-excel icon-preview-large" style="color: green;font-size: 50px;"></i> 
+                            <i class="fa-solid fa-download icon-preview-hover"></i>
+                        </div>
+                    </div>
+                   
+                    <div class="file-title d-flex align-items-center p-2">
+                        <i class="fa-solid fa-file-excel icon-preview" style="color: green"></i> 
+                        <div>{{fileName}}</div>
+                    </div>
+                </div>
+                <div class="ml-1">{{name}} • {{time}}</div>
+            </div>
+        </div>
+    </div>
+</script>
+<script id="client-sticker" type="x-tmpl-mustache">
+    <div class="client-msg d-flex justify-content-start mb-2">
+        <div class="d-flex">
+            <img src="{{avatar}}" alt="avt" class="client-avatar"/>
+            <div>
+                <div class="client-msg-stickers">
+                    <img src="{{url}}" width="150" height="150" alt="stickers"/>
+                </div>
+                <div class="ml-1">{{name}} • {{time}}</div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<!-- Agent mustache -->
+<script id="agent-text" type="x-tmpl-mustache">
+    <div class="agent-msg d-flex justify-content-end mb-2">
+        <div class="agent-msg-block d-flex flex-column align-items-end">
+            <pre class="agent-msg-body p-2">{{text}}</pre>
+            <div class="text-end">{{name}} • {{time}}</div>
+        </div>
+    </div>
+</script>
+<script id="agent-img" type="x-tmpl-mustache">
+    <div class="agent-msg d-flex justify-content-end mb-2">
+        <div class="agent-msg-block d-flex flex-column">
+            <div class="client-msg-img border" style="position: relative">
+                <div class="wrap-preview">
+                    <div class="file-preview">
+                        <div class="img-preview" style="background-image: url('{{url}}')"></div>
+                        <i class="fa-solid fa-eye icon-preview-hover"></i>
+                    </div>
+                </div>
+                <div class="file-title d-flex align-items-center p-2">
+                    <i class="fa-solid fa-image icon-preview" style="color: green"></i>
+                    <div>{{fileName}}</div>
+                </div>
+            </div>
+            <div class="text-end">{{name}} • {{time}}</div>
+        </div>
+    </div>
+</script>
+<script id="agent-file" type="x-tmpl-mustache">
+    <div class="agent-msg d-flex justify-content-end mb-2">
+        <div class="agent-msg-block d-flex flex-column">
+            <div class="client-msg-file border" style="position: relative">
+                <div class="wrap-preview">
+                    <div class="file-preview d-flex align-items-center justify-content-center">
+                        <i class="fa-solid fa-file-excel icon-preview-large" style="color: green;font-size: 50px;"></i> 
+                        <i class="fa-solid fa-download icon-preview-hover"></i>
+                    </div>
+                </div>
+               
+                <div class="file-title d-flex align-items-center p-2">
+                    <i class="fa-solid fa-file-excel icon-preview" style="color: green"></i> 
+                    <div>{{fileName}}</div>
+                </div>
+            </div>
+            <div class="text-end">{{name}} • {{time}}</div>
+        </div>
+    </div>
+</script>
+
+
+<script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/js/all.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/emoji-picker-element@^1/index.js" type="module" ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+<script src="/public/js/chat.js"></script>
+<script>
+    // var params = location.href.split('?')[1].split('&');
+    // data = {};
+    // for (x in params)
+    // {
+    //     data[params[x].split('=')[0]] = params[x].split('=')[1];
+    // }    
+    // $("#data").text(JSON.stringify(data));
+    // $("#chatId").text(data.chatId);
+    // $("#userId").text(data.userId);
+    // $("#ownerId").text(data.ownerId);
+    // $("#startTime").text(new moment(decodeURI(data.startTime)).format("HH:mm:ss, DD/MM/YYYY"));
+    // $("#org").text(data.org);
+</script>
+</html>
