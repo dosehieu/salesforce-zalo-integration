@@ -27,7 +27,7 @@ body, pre {
 }
 
 .chat-wrap{
-    height: 358px;
+    height: 71.9vh;
     overflow: auto;
     border-radius: 5px 5px 0px 0px;
 }
@@ -69,6 +69,12 @@ body, pre {
 }
 .file-title{
     background-color: #f3f3f3;
+    max-width: 300px;
+}
+.file-name{
+    max-width: 245px;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 .file-preview{
     width: 300px;
@@ -121,4 +127,27 @@ body, pre {
     height: 315px;
     --emoji-size: 1rem;
     --input-font-size : 13px
+}
+.file-picker{
+    position: absolute;
+    bottom: 37px;
+    left: 10px;
+    width: 350px;
+    height: 230px;
+    background-color: white;
+}
+.file-picker-block{
+    margin: 10px;
+    height: 210px;
+    background-color: #f8f8ff;
+    border: 3px dashed #bfc5e9;
+    border-radius: 5px;
+    border-spacing: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+.browse-file{
+    color: #5249ac;text-decoration: underline;cursor: pointer;
 }

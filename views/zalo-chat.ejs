@@ -11,6 +11,7 @@
 <style>
 
 </style>
+
 <body style="overflow-x: hidden;">
     <div class="chatting">
         <div class="chat-wrap chat-border">
@@ -26,8 +27,36 @@
        <div class="chat-button chat-border p-1" >
             <div class="d-flex justify-content-between">
                 <div class="chat-button-feature d-flex justify-content-between" style="width: 70px;">
-                    <div id="file-button" class="icon-button d-flex justify-content-center align-items-center chat-border">
-                        <i  class="fa fa-paperclip" title="Attach file" aria-hidden="true"></i>
+                    <div style="position: relative;">
+                        <div class="file-picker border" style="display: none;">
+                            <div id="drop-zone" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);" ondragleave="dragLeaveHandler(event)">
+                                <div class="file-picker-block drag-over-block" style="display: none;">
+                                    <i class="fa-solid fa-download mb-3" style="color: #5249ac;font-size: 50px"></i>
+                                    <div class="mb-1" style="font-size: 16px;"><b>Drop file here</b></div>
+                                </div>
+                                <div class="drop-file-block">
+                                    <div class="file-picker-block valid-file" >
+                                        <i class="fa-solid fa-cloud-arrow-up mb-3" style="color: #5249ac;font-size: 50px"></i>
+                                        <div class="mb-1" style="font-size: 16px;"><b>Drag or drop files or </b> <b class="browse-file">Browse</b></div>
+                                        <div>Supported formates: image, pdf, excel, word, zip, rar, limited 20MB</div>
+                                    </div>
+                                    <div class="file-picker-block invalid-file" style="display: none;" >
+                                        <div class="d-flex justify-content-center align-items-center mb-1">
+                                            <i class="fa-solid fa-file me-2 file-picker-icon" style="color: #5249ac;font-size: 50px"></i> 
+                                            <div class="file-name file-picker-name" style="line-break: anywhere;max-width: 200px;" ></div>
+                                        </div>
+                                        <div class="text-danger file-invalid-msg mb-2"></div>
+                                        <div class="mb-1" style="font-size: 16px;"><b>Drag or drop another files or </b> <b class="browse-file">Browse</b></div>
+                                        <div>Supported formates: image, pdf, excel, word, zip, rar, limited 20MB</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <input id="file-input" hidden type="file" />
+                        </div>
+                        <div class="file-button icon-button d-flex justify-content-center align-items-center chat-border" style="position: relative;">
+                            <i  class="fa fa-paperclip" title="Attach file" aria-hidden="true"></i>
+                        </div>
                     </div>
                     <div style="position: relative;">
                         <emoji-picker class="emoji-picker" style="display: none;"></emoji-picker>
@@ -42,8 +71,24 @@
        </div>
        <textarea id="chat-box" class="chat-box chat-border p-2" placeholder="Type a message..." style="border-radius: 0px 0px 5px 5px;" rows="4"></textarea>
     </div>
-    <input id="file-input" hidden type="file" />
+    
     <pre id="preview"></pre>
+    <div class="loadding-socket modal fade" style="position: absolute;
+    top: 50%;
+    left: 50%;">
+        <div class="loader"></div>
+    </div>
+  <!-- Modal -->
+  <div class="modal fade" id="socketConnect" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body d-flex align-items-center">
+            <div class="spinner-border me-2" style="color: #3498db;"></div>
+            <div>Connecting to the chat server</div>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 
 <!-- Client mustache -->
@@ -65,15 +110,15 @@
             <div>
                 <div class="client-msg-img border" style="position: relative">
                     <div class="wrap-preview">
-                        <div class="file-preview">
+                        <a class="file-preview" href='{{url}}' target='blank'>
                             <div class="img-preview" style="background-image: url('{{url}}')"></div>
                             <i class="fa-solid fa-eye icon-preview-hover"></i>
-                        </div>
+                        </a>
                     </div>
                     
                     <div class="file-title d-flex align-items-center p-2">
                         <i class="fa-solid fa-image icon-preview" style="color: green"></i>
-                        <div>{{fileName}}.jpg</div>
+                        <div class="file-name">{{fileName}}</div>
                     </div>
                 </div>
                 <div class="ml-1">{{name}} • {{time}}</div>
@@ -88,15 +133,15 @@
             <div>
                 <div class="client-msg-file border" style="position: relative">
                     <div class="wrap-preview">
-                        <div class="file-preview d-flex align-items-center justify-content-center">
-                            <i class="fa-solid fa-file-excel icon-preview-large" style="color: green;font-size: 50px;"></i> 
+                        <a class="file-preview d-flex align-items-center justify-content-center" href='{{url}}' target='blank'>
+                            <i class="fa-solid {{icon}} icon-preview-large" style="color: {{iconColor}};font-size: 50px;"></i> 
                             <i class="fa-solid fa-download icon-preview-hover"></i>
-                        </div>
+                        </a>
                     </div>
                    
                     <div class="file-title d-flex align-items-center p-2">
-                        <i class="fa-solid fa-file-excel icon-preview" style="color: green"></i> 
-                        <div>{{fileName}}</div>
+                        <i class="fa-solid {{icon}} icon-preview" style="color: {{iconColor}}"></i> 
+                        <div class="file-name">{{fileName}}</div>
                     </div>
                 </div>
                 <div class="ml-1">{{name}} • {{time}}</div>
@@ -132,14 +177,14 @@
         <div class="agent-msg-block d-flex flex-column">
             <div class="client-msg-img border" style="position: relative">
                 <div class="wrap-preview">
-                    <div class="file-preview">
+                    <a class="file-preview" href='{{url}}' target='blank'>
                         <div class="img-preview" style="background-image: url('{{url}}')"></div>
                         <i class="fa-solid fa-eye icon-preview-hover"></i>
-                    </div>
+                    </a>
                 </div>
                 <div class="file-title d-flex align-items-center p-2">
                     <i class="fa-solid fa-image icon-preview" style="color: green"></i>
-                    <div>{{fileName}}</div>
+                    <div class="file-name">{{fileName}}</div>
                 </div>
             </div>
             <div class="text-end">{{name}} • {{time}}</div>
@@ -151,15 +196,15 @@
         <div class="agent-msg-block d-flex flex-column">
             <div class="client-msg-file border" style="position: relative">
                 <div class="wrap-preview">
-                    <div class="file-preview d-flex align-items-center justify-content-center">
-                        <i class="fa-solid fa-file-excel icon-preview-large" style="color: green;font-size: 50px;"></i> 
+                    <a class="file-preview d-flex align-items-center justify-content-center" href='{{url}}' target='blank'>
+                        <i class="fa-solid {{icon}} icon-preview-large" style="color: {{iconColor}};font-size: 50px;"></i> 
                         <i class="fa-solid fa-download icon-preview-hover"></i>
-                    </div>
+                    </a>
                 </div>
                
                 <div class="file-title d-flex align-items-center p-2">
-                    <i class="fa-solid fa-file-excel icon-preview" style="color: green"></i> 
-                    <div>{{fileName}}</div>
+                    <i class="fa-solid {{icon}} icon-preview" style="color: {{iconColor}}"></i> 
+                    <div class="file-name">{{fileName}}</div>
                 </div>
             </div>
             <div class="text-end">{{name}} • {{time}}</div>
@@ -177,18 +222,4 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
 <script src="/public/js/chat.js"></script>
-<script>
-    // var params = location.href.split('?')[1].split('&');
-    // data = {};
-    // for (x in params)
-    // {
-    //     data[params[x].split('=')[0]] = params[x].split('=')[1];
-    // }    
-    // $("#data").text(JSON.stringify(data));
-    // $("#chatId").text(data.chatId);
-    // $("#userId").text(data.userId);
-    // $("#ownerId").text(data.ownerId);
-    // $("#startTime").text(new moment(decodeURI(data.startTime)).format("HH:mm:ss, DD/MM/YYYY"));
-    // $("#org").text(data.org);
-</script>
 </html>

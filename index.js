@@ -2,13 +2,19 @@ const express = require('express');
 const app = express();
 const request = require('request');
 const wikip = require('wiki-infobox-parser');
+const {processChatData} = require('./service/chatService')
 
 //ejs
 app.set("view engine", 'ejs');
 
 //routes
-app.get('/', (req,res) =>{
-    res.render('chat');
+app.get('/zalo-chat', (req,res) =>{
+    const orgId = req.query.orgId;
+    if(orgId == "3388f0b8-7d8c-49f2-b6ff-9d45d184186e"){
+        res.render('zalo-chat');
+    }else{
+        res.render('404');
+    }
 });
 
 app.get('/detail', (req,res) =>{
@@ -58,11 +64,23 @@ app.use('/public', express.static('public'));
 //init socket 
 var server = require('http').createServer(app);
 var io = require('socket.io')(server, {
-    allowEIO3: true // false by default
+    allowEIO3: true, // false by default
+    maxHttpBufferSize: 1e8
   });
 io.on('connection', function (socket) {
+
+  const orgId = socket.handshake.query.orgId;
+  const clientId = socket.handshake.query.clientId;
+  const groupName = `org-${orgId}-${clientId}`;
+  console.log(groupName)
+    socket.join(groupName);
+
     socket.on('send', function (data) {
-        io.sockets.emit('send', {agentId: data.agentId, zaloUserId: data.zaloUserId, type: "text", text: "reply from clent"});
+        try{
+            processChatData(io.to(groupName), data)
+        }catch(error){
+            console.log("Lỗi", error)
+        }
     });
 });
 
