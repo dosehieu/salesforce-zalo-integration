@@ -70,8 +70,8 @@ var io = require('socket.io')(server, {
 io.on('connection', function (socket) {
 
   const orgId = socket.handshake.query.orgId;
-  const clientId = socket.handshake.query.clientId;
-  const groupName = `org-${orgId}-${clientId}`;
+  const zaloUserId = socket.handshake.query.zaloUserId;
+  const groupName = `group-${orgId}-${zaloUserId}`;
   console.log(groupName)
     socket.join(groupName);
 

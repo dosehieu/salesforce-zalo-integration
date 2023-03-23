@@ -16,16 +16,16 @@
     <div class="chatting">
         <div class="chat-wrap chat-border">
             <div class="chat-start text-center pb-2 pt-4" style="border-bottom: 1px solid #c0c0c0;">
-                <i class="fa fa-commenting" aria-hidden="true"></i><span> Chat started by</span> <span id="ownerId"></span> - <span id="startTime">startTime</span>
+                <i class="fa fa-commenting" aria-hidden="true"></i><span> Chat started by</span> <span id="startedBy"></span> - <span id="startTime">startTime</span>
             </div>
             <div class="chat-body p-3">
             </div>
-            <div class="chat-end text-center pt-2 pb-4" style="border-top: 1px solid #c0c0c0;">
-                <i class="fa-solid fa-comment-slash"></i><span> Chat ended by</span> <span id="ownerId"></span> - <span id="startTime">startEnd</span>
+            <div class="chat-end text-center pt-2 pb-4" style="border-top: 1px solid #c0c0c0;display: none;">
+                <i class="fa-solid fa-comment-slash"></i><span> Chat ended by</span> <span id="endedBy"></span> - <span id="endTime">Endtime</span>
             </div>
         </div>
        <div class="chat-button chat-border p-1" >
-            <div class="d-flex justify-content-between">
+            <div class="d-flex justify-content-between" style="position: relative;">
                 <div class="chat-button-feature d-flex justify-content-between" style="width: 70px;">
                     <div style="position: relative;">
                         <div class="file-picker border" style="display: none;">
@@ -66,7 +66,14 @@
                     </div>
                     
                 </div>
-                <button class="btn btn-sm btn-danger" style="width: 90px;">End Chat</button>
+                <button class="btn btn-sm btn-danger end-chat" style="width: 90px;">End Chat</button>
+                <div class="end-chat-popover chat-border p-3" style="display: none;">
+                    <div class="mb-4">Are you sure you want to end this chat?</div>
+                    <div class="text-end">
+                        <button type="button" class="btn btn-sm btn-light border end-chat-cancel" style="width: 70px;color: #018be0;">Cancel</button>
+                        <button class="btn btn-sm btn-danger btn-end-chat" style="width: 90px;">End Chat</button>
+                    </div>
+                </div>
             </div>
        </div>
        <textarea id="chat-box" class="chat-box chat-border p-2" placeholder="Type a message..." style="border-radius: 0px 0px 5px 5px;" rows="4"></textarea>
@@ -211,7 +218,6 @@
         </div>
     </div>
 </script>
-
 
 <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js"></script>

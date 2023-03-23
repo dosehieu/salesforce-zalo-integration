@@ -4,17 +4,17 @@ function processChatData(sockets, data){
     switch(data.type){
         case "text":
             sockets.emit('send', data);
-            sockets.emit('send', {agentId: data.agentId, zaloUserId: data.zaloUserId, type: "text", text: "reply from client"});
+            sockets.emit('send', {userId: data.userId, zaloUserId: data.zaloUserId, type: "text", text: "reply from client"});
             break;
         case "image":
             var url = uploadFile(data.file, data.fileName);
             sockets.emit('send', {...data, url: url});
-            sockets.emit('send', {agentId: data.agentId, zaloUserId: data.zaloUserId, type: "image", url: url, fileName: data.fileName});
+            sockets.emit('send', {userId: data.userId, zaloUserId: data.zaloUserId, type: "image", url: url, fileName: data.fileName});
             break;
         case "file":
             var url = uploadFile(data.file, data.fileName);
             sockets.emit('send', {...data, url: url});
-            sockets.emit('send', {agentId: data.agentId, zaloUserId: data.zaloUserId, type: "file", url: url, fileName: data.fileName, extension: data.extension});
+            sockets.emit('send', {userId: data.userId, zaloUserId: data.zaloUserId, type: "file", url: url, fileName: data.fileName, extension: data.extension});
             break;
     }
 }

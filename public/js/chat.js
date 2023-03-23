@@ -1,4 +1,3 @@
-
 const fileIconConfig = [
     { name: "xlsx", icon: "fa-file-excel", color: "#217346" },
     { name: "xls", icon: "fa-file-excel", color: "#217346" },
@@ -12,32 +11,31 @@ const fileIconConfig = [
     { name: "zip", icon: "fa-file-zipper", color: "#217346" },
 ];
 const defaultIcon = { icon: "fa-file", color: "#217346" };
-const paramObject = getParamObject();
+var paramObject = getParamObject();
 const socket = io.connect(window.location.origin, {
     query: {
-      clientId: paramObject.clientId,
+      zaloUserId: paramObject.zaloUserId,
       orgId: paramObject.orgId,
     }
 });
 const connectModal = new bootstrap.Modal($("#socketConnect"));
-const agentId = 1;
-const zaloUserId = 1;
-const agentName = "Agent hieu";
-const zaloUserName = "Client hieu";
-const zaloUserAvatar = "https://gapit-dev-ed.develop.file.force.com/servlet/servlet.FileDownload?file=0152w000003Bf2I";
+var chatDisabled = false;
 var showChooseFile = false;
 var showEmoji = false;
+var showEndChatForm = false;
 var isDragOver = false;
 var dragLeaveTimeout  = [];
-
 $(document).ready(function () {
-
+    window.addEventListener("message", receiveMessage, false);
     $('.browse-file').on('click', function() {
         $('#file-input').trigger('click');
     });
     
     // File picker config
     $('.file-button').on('click', function() {
+        if(chatDisabled){
+            return false;
+        }
         showChooseFile =!showChooseFile;
         if(!showChooseFile){
             closeFilePicker();
@@ -51,6 +49,9 @@ $(document).ready(function () {
     });
     // Emoji picker config
     $('.emoji-button').on('click', function() {
+        if(chatDisabled){
+            return false;
+        }
         showEmoji =!showEmoji;
         if(!showEmoji){
             closeEmojiPicker();
@@ -71,12 +72,35 @@ $(document).ready(function () {
     $(window).click(function() {
         showEmoji = false;
         showChooseFile = false;
+        showEndChatForm = false;
         closeEmojiPicker();
         closeFilePicker();
+        $(".end-chat-popover").hide();
     });
 
-    $('.emoji-picker, .emoji-button, .file-button, .file-picker').click(function(event){
+    $('.emoji-picker, .emoji-button, .file-button, .file-picker, .end-chat, .end-chat-popover').click(function(event){
         event.stopPropagation();
+    });
+
+    $(".end-chat").on("click", function(){
+        showEndChatForm =!showEndChatForm;
+        if(!showEndChatForm){
+            $(".end-chat-popover").hide();
+            return false;
+        }
+        $(".end-chat-popover").show();
+    });
+    $(".end-chat-cancel").on("click", function(){
+        showEndChatForm = false;
+        $(".end-chat-popover").hide();
+    });
+    $(".btn-end-chat").on("click", function(){
+        showEndChatForm = false;
+        $(".end-chat-popover").hide();
+        disableChat();
+        $("#endedBy").text(paramObject.userName);
+        $("#endTime").text(moment().format("HH:mm A"));
+        // SF update endTime, endedBy
     });
 
     // Mustache config
@@ -96,18 +120,15 @@ $(document).ready(function () {
     Mustache.parse(agentFile);
     Mustache.parse(agentImg);
 
-    $(".chat-body").append(Mustache.render(clientSticker, { avatar: zaloUserAvatar, url: "https://fcbk.su/_data/stickers/playful_piyomaru/playful_piyomaru_01.png",name: zaloUserName,  time: "12:10" }));
-    $(".chat-body").append(Mustache.render(clientSticker, { avatar: zaloUserAvatar, url: "https://fcbk.su/_data/stickers/playful_piyomaru/playful_piyomaru_01.png",name: zaloUserName,  time: "12:10" }));
-    $(".chat-body").append(Mustache.render(clientSticker, { avatar: zaloUserAvatar, url: "https://fcbk.su/_data/stickers/playful_piyomaru/playful_piyomaru_01.png",name: zaloUserName,  time: "12:10" }));
-    $(".chat-body").append(Mustache.render(clientSticker, { avatar: zaloUserAvatar, url: "https://fcbk.su/_data/stickers/playful_piyomaru/playful_piyomaru_01.png",name: zaloUserName,  time: "12:10" }));
-    $(".chat-body").append(Mustache.render(clientSticker, { avatar: zaloUserAvatar, url: "https://fcbk.su/_data/stickers/playful_piyomaru/playful_piyomaru_01.png",name: zaloUserName,  time: "12:10" }));
-    $(".chat-body").append(Mustache.render(clientSticker, { avatar: zaloUserAvatar, url: "https://fcbk.su/_data/stickers/playful_piyomaru/playful_piyomaru_01.png",name: zaloUserName,  time: "12:10" }));
-    $(".chat-body").append(Mustache.render(clientSticker, { avatar: zaloUserAvatar, url: "https://fcbk.su/_data/stickers/playful_piyomaru/playful_piyomaru_01.png",name: zaloUserName,  time: "12:10" }));
-    $(".chat-body").append(Mustache.render(clientSticker, { avatar: zaloUserAvatar, url: "https://fcbk.su/_data/stickers/playful_piyomaru/playful_piyomaru_01.png",name: zaloUserName,  time: "12:10" }));
-    $(".chat-body").append(Mustache.render(clientSticker, { avatar: zaloUserAvatar, url: "https://fcbk.su/_data/stickers/playful_piyomaru/playful_piyomaru_01.png",name: zaloUserName,  time: "12:10" }));
-
+    $(".chat-body").append(Mustache.render(clientText, { avatar: paramObject.avatarUrl, text: "Hi i am client", name: paramObject.zaloUserName, time: "12:10" }));
+    $(".chat-body").append(Mustache.render(agentText, { text: "Hi i am agent", name: paramObject.userName, time: "12:10" }));
+    $(".chat-body").append(Mustache.render(clientImg, { avatar: paramObject.avatarUrl, url: "https://images.fineartamerica.com/images/artworkimages/mediumlarge/3/empire-state-blue-night-inge-johnsson.jpg", fileName: "22_20220920140111811_0001.jpg",name: paramObject.zaloUserName,  time: "12:10" }));
+    $(".chat-body").append(Mustache.render(agentImg, { url: "https://images.fineartamerica.com/images/artworkimages/mediumlarge/3/empire-state-blue-night-inge-johnsson.jpg", fileName: "22_20220920140111811_0001.jpg",name: paramObject.userName,  time: "12:10" }));
+    $(".chat-body").append(Mustache.render(clientFile, {icon: "fa-file-excel", iconColor: "green", url: "/../public/upload/71b2e62f-0028-4dee-b854-6af9e3e8483a6a684df8-3950-4be0-9443-f551de6fa466OTT_20230222.xlsx", type: "file", avatar: paramObject.avatarUrl, fileName: "22_20220920140111811_0001.xlsx",name: paramObject.zaloUserName,  time: "12:10" }));
+    $(".chat-body").append(Mustache.render(agentFile, {icon: "fa-file-excel", iconColor: "green",url: "/../public/upload/71b2e62f-0028-4dee-b854-6af9e3e8483a6a684df8-3950-4be0-9443-f551de6fa466OTT_20230222.xlsx", type: "file", fileName: "22_20220920140111811_0001.xlsx", name: paramObject.userName,  time: "12:10" }));
+    $(".chat-body").append(Mustache.render(clientSticker, { avatar: paramObject.avatarUrl, url: "https://fcbk.su/_data/stickers/playful_piyomaru/playful_piyomaru_01.png",name: paramObject.zaloUserName,  time: "12:10" }));
+    
     //Socket config
-
     socket.on('connect', function() {
         console.log("Socket connected");
         connectModal.hide();
@@ -123,30 +144,30 @@ $(document).ready(function () {
         if(!data){
             return false;
         }
-        if(data.agentId == agentId && data.zaloUserId == zaloUserId){
+        if(data.userId == paramObject.userId && data.zaloUserId == paramObject.zaloUserId){
             var time = moment().format("HH:mm A");
             switch(data.type){
                 case "text":
                     if(data.fromAgent){
-                        appendMsg(agentText, { text: data.text, name: agentName, time: time });
+                        appendMsg(agentText, { text: data.text, name: data.userName, time: time });
                     }else{
-                        appendMsg(clientText, { avatar: zaloUserAvatar, text: data.text, name: zaloUserName, time: time });
+                        appendMsg(clientText, { avatar: paramObject.avatarUrl, text: data.text, name: paramObject.zaloUserName, time: time });
                     }
                     break;
                 case "image":
                     if(data.fromAgent){
-                        appendMsg(agentImg, { url: data.url, fileName: data.fileName, name: agentName, time: time });
+                        appendMsg(agentImg, { url: data.url, fileName: data.fileName, name: data.userName, time: time });
                     }else{
-                        appendMsg(clientImg, { avatar: zaloUserAvatar, url: data.url, fileName: data.fileName, name: zaloUserName, time: time });
+                        appendMsg(clientImg, { avatar: paramObject.avatarUrl, url: data.url, fileName: data.fileName, name: paramObject.zaloUserName, time: time });
                     }
                     
                     break;
                 case "file":
                     var iconConfig = fileIconConfig.find(x=> x.name == data.extension) ?? defaultIcon;
                     if(data.fromAgent){
-                        appendMsg(agentFile, { url: data.url, fileName: data.fileName, name: agentName, time: time, icon: iconConfig.icon, iconColor: iconConfig.color });
+                        appendMsg(agentFile, { url: data.url, fileName: data.fileName, name: data.userName, time: time, icon: iconConfig.icon, iconColor: iconConfig.color });
                     }else{
-                        appendMsg(clientFile, { avatar: zaloUserAvatar, url: data.url, fileName: data.fileName, name: zaloUserName, time: time, icon: iconConfig.icon, iconColor: iconConfig.color });
+                        appendMsg(clientFile, { avatar: paramObject.avatarUrl, url: data.url, fileName: data.fileName, name: paramObject.zaloUserName, time: time, icon: iconConfig.icon, iconColor: iconConfig.color });
                     }
                    
                     break;
@@ -163,7 +184,7 @@ $(document).ready(function () {
         if(e.keyCode == 13 && !e.shiftKey)
         {
             if(validMsg){
-                socket.emit('send', {agentId: agentId, zaloUserId: zaloUserId, type: "text", text: value, fromAgent: true });
+                socket.emit('send', {userId: paramObject.userId, userName: paramObject.userName, zaloUserId: paramObject.zaloUserId, type: "text", text: value, fromAgent: true });
                 $(this).val("");
             }
             e.preventDefault(); 
@@ -171,10 +192,36 @@ $(document).ready(function () {
     });
 
     $('#file-input').on("change", function(event){
+        if(chatDisabled){
+            return false;
+        }
         var file = event.target.files[0];
         processInputFile(file);
-    })
+    });
 });
+
+function receiveMessage(event) {
+    var message = event.data;
+    console.log("message", message);
+}
+
+function disableChat(){
+    chatDisabled = true;
+    $(".chat-end").show();
+    $(".chat-box").attr("disabled","disabled");
+    $(".end-chat").attr("disabled","disabled");
+    $(".icon-button").addClass("icon-button-disabled");
+    if(showEmoji){
+        showEmoji = false;
+        closeEmojiPicker();
+    }
+    if(showChooseFile){
+        showChooseFile = false;
+        closeFilePicker();
+    }
+    scrollToEndMsg();
+}
+
 function getParamObject(){
     var params = location.href.split('?')[1].split('&');
     data = {};
@@ -182,6 +229,28 @@ function getParamObject(){
     {
         data[params[x].split('=')[0]] = params[x].split('=')[1];
     }
+    
+    switch(data.status){
+        case "Waiting":
+            data.startTime = new Date();
+            data.startedBy = data.userName;
+            // SF update startTime, startedBy , status, waitingTime
+            break;
+        case "Chatting": 
+            break;
+        case "Ended": 
+            disableChat();
+            $("#endedBy").text(data.endedBy);
+            $("#endTime").text(new moment(data.endTime).format("HH:mm A, DD/MM/YYYY"));
+            break;
+
+    }
+
+    $("#startedBy").text(data.startedBy);
+    $("#startTime").text(new moment(data.startTime).format("HH:mm A, DD/MM/YYYY"));
+
+    console.log("data",data);
+    console.log("href",window.location.href);
     return data; 
 }
 
@@ -191,10 +260,10 @@ function processInputFile(file){
     }
     
     if(file.type && file.type.split("/")[0] == "image"){
-        socket.emit('send', { agentId: agentId, zaloUserId: zaloUserId, type: "image", fileName: file.name, fromAgent: true, file: file});
+        socket.emit('send', { userId: paramObject.userId, userName: paramObject.userName, zaloUserId: paramObject.zaloUserId, type: "image", fileName: file.name, fromAgent: true, file: file});
     }else{
         var extension = getFileExtension(file);
-        socket.emit('send', { agentId: agentId, zaloUserId: zaloUserId, type: "file", fileName: file.name, extension: extension, fromAgent: true, file: file});
+        socket.emit('send', { userId: paramObject.userId, userName: paramObject.userName, zaloUserId: paramObject.zaloUserId, type: "file", fileName: file.name, extension: extension, fromAgent: true, file: file});
     }
     $(".file-button").click();
 }
@@ -288,4 +357,5 @@ function dragLeaveHandler(ev) {
     dragLeaveTimeout.push(timeoutID);
     ev.preventDefault();
 }
+
 

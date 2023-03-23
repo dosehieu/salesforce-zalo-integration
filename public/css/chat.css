@@ -151,3 +151,36 @@ body, pre {
 .browse-file{
     color: #5249ac;text-decoration: underline;cursor: pointer;
 }
+.end-chat-popover{
+    position: absolute;
+    bottom: 50px;
+    right: 13px;
+    background-color: white;
+    border-radius: 5px;
+}
+.end-chat-popover:before {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    right: 18px;
+    border-top: 20px solid transparent;
+    border-right: 20px solid #c0c0c0;
+    transform: rotate(45deg);
+  }
+.end-chat-popover:after {
+    content: "";
+    position: absolute;
+    bottom: -9px;
+    right: 18px;
+    border-top: 20px solid transparent;
+    border-right: 20px solid white;
+    transform: rotate(45deg);
+  }
+  .icon-button-disabled{
+   opacity: 0.5;
+  }
+  .icon-button-disabled:hover{
+    cursor: default;
+    border: 1px solid #c0c0c0;
+    color: #535353;
+  }
