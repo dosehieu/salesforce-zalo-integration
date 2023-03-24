@@ -1,22 +1,29 @@
 const  { writeFile } = require("fs");
 function processChatData(sockets, data){
     
+    var msgId = createGuid();
     switch(data.type){
         case "text":
-            sockets.emit('send', data);
-            sockets.emit('send', {userId: data.userId, zaloUserId: data.zaloUserId, type: "text", text: "reply from client"});
+            sockets.emit('send', {...data, msgId: msgId});
+            sockets.emit('send', {msgId: msgId, userId: data.userId, zaloUserId: data.zaloUserId, type: "text", text: "reply from client"});
             break;
         case "image":
             var url = uploadFile(data.file, data.fileName);
-            sockets.emit('send', {...data, url: url});
-            sockets.emit('send', {userId: data.userId, zaloUserId: data.zaloUserId, type: "image", url: url, fileName: data.fileName});
+            sockets.emit('send', {...data, url: url, msgId: msgId});
+            sockets.emit('send', {msgId: msgId, userId: data.userId, zaloUserId: data.zaloUserId, type: "image", url: url, fileName: data.fileName});
             break;
         case "file":
             var url = uploadFile(data.file, data.fileName);
-            sockets.emit('send', {...data, url: url});
-            sockets.emit('send', {userId: data.userId, zaloUserId: data.zaloUserId, type: "file", url: url, fileName: data.fileName, extension: data.extension});
+            sockets.emit('send', {...data, url: url, msgId: msgId});
+            sockets.emit('send', {msgId: msgId, userId: data.userId, zaloUserId: data.zaloUserId, type: "file", url: url, fileName: data.fileName, extension: data.extension});
             break;
     }
+    setTimeout(() => {
+        sockets.emit('update', {userId: data.userId, zaloUserId: data.zaloUserId, msgId: msgId, status: "Sent"});
+    }, 2000);
+    setTimeout(() => {
+        sockets.emit('update', {userId: data.userId, zaloUserId: data.zaloUserId, msgId: msgId, status: "Seen"});
+    }, 4000);
 }
 
 function uploadFile(file, fileName){

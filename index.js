@@ -82,6 +82,15 @@ io.on('connection', function (socket) {
             console.log("Lỗi", error)
         }
     });
+
+    socket.on('end', function (data) {
+        try{
+            // SF update endTime, endedBy
+            io.to(groupName).emit('end', data);
+        }catch(error){
+            console.log("Lỗi", error)
+        }
+    });
 });
 
 //port

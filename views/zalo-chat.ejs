@@ -23,13 +23,18 @@
             <div class="chat-end text-center pt-2 pb-4" style="border-top: 1px solid #c0c0c0;display: none;">
                 <i class="fa-solid fa-comment-slash"></i><span> Chat ended by</span> <span id="endedBy"></span> - <span id="endTime">Endtime</span>
             </div>
+            <div class="chat-offline text-center pt-2 pb-4" style="border-top: 1px solid #c0c0c0;display: none;">
+                <div class="d-flex align-items-center justify-content-center">
+                    <i class="fa-solid fa-triangle-exclamation text-warning me-2" style="font-size: 20px;"></i><span> You are offline! Please check internet connection.</span>
+                </div>
+            </div>
         </div>
        <div class="chat-button chat-border p-1" >
             <div class="d-flex justify-content-between" style="position: relative;">
                 <div class="chat-button-feature d-flex justify-content-between" style="width: 70px;">
                     <div style="position: relative;">
                         <div class="file-picker border" style="display: none;">
-                            <div id="drop-zone" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);" ondragleave="dragLeaveHandler(event)">
+                            <div id="drop-zone" ondragover="dragOverHandler(event);" ondragleave="dragLeaveHandler(event)">
                                 <div class="file-picker-block drag-over-block" style="display: none;">
                                     <i class="fa-solid fa-download mb-3" style="color: #5249ac;font-size: 50px"></i>
                                     <div class="mb-1" style="font-size: 16px;"><b>Drop file here</b></div>
@@ -100,7 +105,7 @@
 
 <!-- Client mustache -->
 <script id="client-text" type="x-tmpl-mustache">
-    <div class="client-msg justify-content-start mb-2">
+    <div class="client-msg justify-content-start mb-2" id={{msgId}}>
         <div class="d-flex">
             <img src="{{avatar}}" alt="avt" class="client-avatar"/>
             <div>
@@ -111,7 +116,7 @@
     </div>
 </script>
 <script id="client-img" type="x-tmpl-mustache">
-    <div class="client-msg d-flex justify-content-start mb-2">
+    <div class="client-msg d-flex justify-content-start mb-2" id={{msgId}}>
         <div class="d-flex">
             <img src="{{avatar}}" alt="avt" class="client-avatar"/>
             <div>
@@ -134,7 +139,7 @@
     </div>
 </script>
 <script id="client-file" type="x-tmpl-mustache">
-    <div class="client-msg d-flex justify-content-start mb-2">
+    <div class="client-msg d-flex justify-content-start mb-2" id={{msgId}}>
         <div class="d-flex">
             <img src="{{avatar}}" alt="avt" class="client-avatar"/>
             <div>
@@ -157,7 +162,7 @@
     </div>
 </script>
 <script id="client-sticker" type="x-tmpl-mustache">
-    <div class="client-msg d-flex justify-content-start mb-2">
+    <div class="client-msg d-flex justify-content-start mb-2" id={{msgId}}>
         <div class="d-flex">
             <img src="{{avatar}}" alt="avt" class="client-avatar"/>
             <div>
@@ -172,15 +177,15 @@
 
 <!-- Agent mustache -->
 <script id="agent-text" type="x-tmpl-mustache">
-    <div class="agent-msg d-flex justify-content-end mb-2">
+    <div class="agent-msg d-flex justify-content-end mb-2" id={{msgId}}>
         <div class="agent-msg-block d-flex flex-column align-items-end">
             <pre class="agent-msg-body p-2">{{text}}</pre>
-            <div class="text-end">{{name}} • {{time}}</div>
+            <div class="text-end">{{name}} • {{time}}<span class="msg-status-block" style="display:none"> • <span class="msg-status">Sending</span></span></div>
         </div>
     </div>
 </script>
 <script id="agent-img" type="x-tmpl-mustache">
-    <div class="agent-msg d-flex justify-content-end mb-2">
+    <div class="agent-msg d-flex justify-content-end mb-2" id={{msgId}}>
         <div class="agent-msg-block d-flex flex-column">
             <div class="client-msg-img border" style="position: relative">
                 <div class="wrap-preview">
@@ -194,12 +199,12 @@
                     <div class="file-name">{{fileName}}</div>
                 </div>
             </div>
-            <div class="text-end">{{name}} • {{time}}</div>
+            <div class="text-end">{{name}} • {{time}}<span class="msg-status-block" style="display:none"> • <span class="msg-status">Sending</span></span></div>
         </div>
     </div>
 </script>
 <script id="agent-file" type="x-tmpl-mustache">
-    <div class="agent-msg d-flex justify-content-end mb-2">
+    <div class="agent-msg d-flex justify-content-end mb-2" id={{msgId}}>
         <div class="agent-msg-block d-flex flex-column">
             <div class="client-msg-file border" style="position: relative">
                 <div class="wrap-preview">
@@ -214,7 +219,7 @@
                     <div class="file-name">{{fileName}}</div>
                 </div>
             </div>
-            <div class="text-end">{{name}} • {{time}}</div>
+            <div class="text-end">{{name}} • {{time}}<span class="msg-status-block" style="display:none"> • <span class="msg-status">Sending</span></span></div>
         </div>
     </div>
 </script>
