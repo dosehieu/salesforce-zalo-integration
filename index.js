@@ -76,8 +76,8 @@ const startZaloChatWorker =()=>{
 startZaloChatWorker();
 
 //init socket 
-var serverSocket = require('http').createServer(app);
-var io = require('socket.io')(serverSocket, {
+var server = require('http').createServer(app);
+var io = require('socket.io')(server, {
     allowEIO3: true, // false by default
     maxHttpBufferSize: 1e8
   });
@@ -110,7 +110,7 @@ io.on('connection', function (socket) {
 //port
 app.set("port", process.env.PORT || 8080);
 
-const server = app.listen(app.get("port"), function () {
+server.listen(app.get("port"), function () {
     logger.info(`Server is running at localhost: ${app.get("port")}`)
   });
 
