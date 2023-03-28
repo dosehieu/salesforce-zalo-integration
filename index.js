@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const env = require("./env");
+
 process.env = {
     ...env,
     ...process.env,
@@ -76,13 +77,12 @@ const startZaloChatWorker =()=>{
 startZaloChatWorker();
 
 //init socket 
-var server = require('http').createServer(app);
-var io = require('socket.io')(server, {
+const server = require('http').createServer(app);
+const io = require('socket.io')(server, {
     allowEIO3: true, // false by default
     maxHttpBufferSize: 1e8
   });
 io.on('connection', function (socket) {
-
   const orgId = socket.handshake.query.orgId;
   const zaloUserId = socket.handshake.query.zaloUserId;
   const groupName = `group-${orgId}-${zaloUserId}`;
@@ -134,4 +134,6 @@ process.on('SIGTERM', () => {
       logger.debug('queue closed');
     });
   }
+
+  module.exports = { io }
   

@@ -73,8 +73,8 @@ body, pre {
 }
 .file-name{
     max-width: 245px;
-    text-overflow: ellipsis;
     overflow: hidden;
+    line-break: anywhere;
 }
 .file-preview{
     width: 300px;

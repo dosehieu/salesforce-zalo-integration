@@ -24,7 +24,7 @@ $(document).ready(function () {
     var event = {
         data: {
             orgId: "3388f0b8-7d8c-49f2-b6ff-9d45d184186e",
-            "zaloUserId": "501698754",
+            "zaloUserId": "2486447953218085222",
             "chatId": "ZS-0021",
             "zaloUserName": "Dose hieu",
             "avatarUrl": "https://gapit-dev-ed.develop.file.force.com/servlet/servlet.FileDownload?file=0152w000003Bf2I&test=1",
@@ -186,16 +186,27 @@ function receiveMessage(event) {
                     appendMsg(clientText, { msgId: data.msgId, avatar: paramObject.avatarUrl, text: data.text, name: paramObject.zaloUserName, time: time });
                 }
                 break;
+            case "sticker":
+                    appendMsg(clientSticker, { msgId: data.msgId, avatar: paramObject.avatarUrl, url: data.url , name: paramObject.zaloUserName,  time: time });
+                break;
             case "image":
+                var split = data.url.split("/");
+                var fileName = "";
+                if(split && split.length > 0){
+                    fileName = split[split.length-1];
+                }
                 if(data.fromAgent){
-                    appendMsg(agentImg, { msgId: data.msgId, url: data.url, fileName: data.fileName, name: data.userName, time: time });
+                    appendMsg(agentImg, { msgId: data.msgId, url: data.url, fileName: fileName, name: data.userName, time: time });
                 }else{
-                    appendMsg(clientImg, { msgId: data.msgId, avatar: paramObject.avatarUrl, url: data.url, fileName: data.fileName, name: paramObject.zaloUserName, time: time });
+                    appendMsg(clientImg, { msgId: data.msgId, avatar: paramObject.avatarUrl, url: data.url, fileName: fileName, name: paramObject.zaloUserName, time: time });
                 }
                 
                 break;
             case "file":
-                var iconConfig = fileIconConfig.find(x=> x.name == data.extension) ?? defaultIcon;
+
+                var split = data.fileName.split(".");
+                var extension = split[split.length-1];
+                var iconConfig = fileIconConfig.find(x=> x.name == extension) ?? defaultIcon;
                 if(data.fromAgent){
                     appendMsg(agentFile, { msgId: data.msgId, url: data.url, fileName: data.fileName, name: data.userName, time: time, icon: iconConfig.icon, iconColor: iconConfig.color });
                 }else{

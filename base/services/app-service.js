@@ -1,7 +1,7 @@
 const logger = require("../../base/logger");
 const MongoClient = require("mongodb").MongoClient;
 const mongourl = process.env.MONGODB_URL;
-const dbName = "salesforce-chat";
+const dbName = "salesforce-zalo-chat";
 
 async function connectDb() {
   const client = await MongoClient.connect(mongourl, {
