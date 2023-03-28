@@ -1,8 +1,31 @@
 const express = require('express');
 const app = express();
-const request = require('request');
-const wikip = require('wiki-infobox-parser');
-const {processChatData} = require('./service/chatService')
+const env = require("./env");
+process.env = {
+    ...env,
+    ...process.env,
+  };
+const {processChatData} = require('./services/chat-service');
+const {processZaloChat} = require('./services/zalo-service');
+const webhookController = require("./controller/webhook-controller");
+const bodyParser = require("body-parser");
+const logger = require('./base/logger');
+const queueService  = require("./base/services/queue-service");
+const redisService = require("./base/services/redis-service");
+const httpLogger = require("pino-http").pinoHttp({
+    logger:logger,
+    customLogLevel: function (req, res, err) {
+      if (res.statusCode >= 400 && res.statusCode < 500) {
+        return 'warn'
+      } else if (res.statusCode >= 500 || err) {
+        return 'error'
+      } else if ((res.statusCode >= 300 && res.statusCode < 400) ||res.hasHeader('x-log')) {
+        return 'silent'
+      }
+      return 'info'
+    }
+  });
+
 
 //ejs
 app.set("view engine", 'ejs');
@@ -21,49 +44,40 @@ app.get('/detail', (req,res) =>{
     res.render('detail');
 });
 
-app.get('/index', (req,response) =>{
-    let url = "https://en.wikipedia.org/w/api.php"
-    let params = {
-        action: "opensearch",
-        search: req.query.person,
-        limit: "1",
-        namespace: "0",
-        format: "json"
-    }
-
-    url = url + "?"
-    Object.keys(params).forEach( (key) => {
-        url += '&' + key + '=' + params[key]; 
-    });
-
-    //get wikip search string
-    request(url,(err,res, body) =>{
-        if(err) {
-            response.redirect('404');
-        }
-            result = JSON.parse(body);
-            x = result[3][0];
-            x = x.substring(30, x.length); 
-            //get wikip json
-            wikip(x , (err, final) => {
-                if (err){
-                    response.redirect('404');
-                }
-                else{
-                    const answers = final;
-                    response.send(answers);
-                }
-            });
-    });
-
-    
-});
-
+app.use(httpLogger);
+// parse application/json
+app.use(bodyParser.json({}));
+app.use(bodyParser.raw({ type: "application/json" }));
 app.use('/public', express.static('public'));
+app.use("/webhook", webhookController);
+
+const completedEvent=(job)=>{
+    logger.info({tag:job.name,attempt:job?.attemptsMade},`processed ${job.name}`)
+  }
+  const failedEvent = (job)=>{
+    const maxAttempts = job?.opts.attempts || 1;
+      
+    if (job.attemptsMade < maxAttempts) return;
+    logger.warn({tag:job.name,attempt:job?.attemptsMade,data:job?.data,err:job?.stacktrace},`failed to process ${job.name} ` +job?.failedReason);
+  }
+const startZaloChatWorker =()=>{
+    const queueName=process.env.MSG_QUEUE||"msg-queue";
+    const workerConfig = queueService.defaultWorkerConfig(`${queueName}-zaloChat`);
+    workerConfig.concurrency= 1;
+    workerConfig.settings = {backoffStrategy:(attemptsMade, type, err, job)=>{
+    return attemptsMade===undefined?1000:  attemptsMade*(attemptsMade+60)*1000;
+  
+    }}
+    const worker = queueService.createWorker(`${queueName}-zaloChat`, processZaloChat ,workerConfig);
+    worker?.on('failed', failedEvent);
+    worker?.on('completed', completedEvent);
+  
+}
+startZaloChatWorker();
 
 //init socket 
-var server = require('http').createServer(app);
-var io = require('socket.io')(server, {
+var serverSocket = require('http').createServer(app);
+var io = require('socket.io')(serverSocket, {
     allowEIO3: true, // false by default
     maxHttpBufferSize: 1e8
   });
@@ -94,4 +108,30 @@ io.on('connection', function (socket) {
 });
 
 //port
-server.listen(8080, console.log("Listening at port 8080..."))
+app.set("port", process.env.PORT || 8080);
+
+const server = app.listen(app.get("port"), function () {
+    logger.info(`Server is running at localhost: ${app.get("port")}`)
+  });
+
+process.on('SIGTERM', () => {
+    logger.debug('SIGTERM signal received: closing HTTP server')
+    shutdown();
+  });
+  process.on('SIGINT', () => {
+    logger.debug('SIGINT signal received: closing HTTP server');
+    shutdown();
+  });
+  
+  const shutdown = ()=>{
+  
+    server.close(async () => {
+      logger.debug('HTTP server closed');
+      await queueService.closeAllWorker();
+      await queueService.closeAllQueue();
+  
+      await redisService.closeAll();
+      logger.debug('queue closed');
+    });
+  }
+  

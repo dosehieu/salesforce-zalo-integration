@@ -18,11 +18,15 @@
   },
   "homepage": "https://github.com/rat9615/simple-nodejs-app#readme",
   "dependencies": {
+    "base64url": "^3.0.1",
+    "bullmq": "^3.10.2",
     "ejs": "^3.1.7",
     "express": "^4.17.1",
     "node-fetch": "^2.6.7",
     "nodemon": "^2.0.3",
+    "pino": "^8.11.0",
+    "pino-http": "^8.3.3",
     "request": "^2.88.2",
-    "wiki-infobox-parser": "^0.1.11"
+    "socket.io": "^4.6.1"
   }
 }

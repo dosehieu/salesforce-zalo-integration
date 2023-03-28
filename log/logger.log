@@ -1,0 +1,273 @@
+{"level":30,"time":1679895371439,"pid":5364,"hostname":"GAPIT-HieuNV","msg":"Server is running at localhost: 8080"}
+{"level":30,"time":1679895371446,"pid":5364,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-consumer connected"}
+{"level":30,"time":1679895371456,"pid":5364,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679895371520,"pid":5364,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679895371635,"pid":5364,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679895371794,"pid":5364,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679895372014,"pid":5364,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679895372279,"pid":5364,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679895372582,"pid":5364,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679895372952,"pid":5364,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679895373366,"pid":5364,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679895373833,"pid":5364,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":40,"time":1679895374275,"pid":5364,"hostname":"GAPIT-HieuNV","req":{"id":1,"method":"GET","url":"/socket.io/?zaloUserId=501698754&orgId=3388f0b8-7d8c-49f2-b6ff-9d45d184186e&EIO=3&transport=polling&t=OSXaIcW","query":{"zaloUserId":"501698754","orgId":"3388f0b8-7d8c-49f2-b6ff-9d45d184186e","EIO":"3","transport":"polling","t":"OSXaIcW"},"params":{},"headers":{"host":"localhost:8080","connection":"keep-alive","sec-ch-ua":"\"Google Chrome\";v=\"111\", \"Not(A:Brand\";v=\"8\", \"Chromium\";v=\"111\"","accept":"*/*","sec-ch-ua-mobile":"?0","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","sec-ch-ua-platform":"\"Windows\"","sec-fetch-site":"same-origin","sec-fetch-mode":"cors","sec-fetch-dest":"empty","referer":"http://localhost:8080/zalo-chat?orgId=3388f0b8-7d8c-49f2-b6ff-9d45d184186e","accept-encoding":"gzip, deflate, br","accept-language":"en-US,en;q=0.9,vi;q=0.8"},"remoteAddress":"::1","remotePort":57240},"res":{"statusCode":404,"headers":{"x-powered-by":"Express","content-security-policy":"default-src 'none'","x-content-type-options":"nosniff","content-type":"text/html; charset=utf-8","content-length":149}},"responseTime":11,"msg":"request completed"}
+{"level":30,"time":1679895374338,"pid":5364,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679895374904,"pid":5364,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679895375525,"pid":5364,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679895376188,"pid":5364,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679895376906,"pid":5364,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679895377666,"pid":5364,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679895378489,"pid":5364,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679895379349,"pid":5364,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":40,"time":1679895380255,"pid":5364,"hostname":"GAPIT-HieuNV","req":{"id":2,"method":"GET","url":"/socket.io/?zaloUserId=501698754&orgId=3388f0b8-7d8c-49f2-b6ff-9d45d184186e&EIO=3&transport=polling&t=OSXaK4J","query":{"zaloUserId":"501698754","orgId":"3388f0b8-7d8c-49f2-b6ff-9d45d184186e","EIO":"3","transport":"polling","t":"OSXaK4J"},"params":{},"headers":{"host":"localhost:8080","connection":"keep-alive","sec-ch-ua":"\"Google Chrome\";v=\"111\", \"Not(A:Brand\";v=\"8\", \"Chromium\";v=\"111\"","accept":"*/*","sec-ch-ua-mobile":"?0","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","sec-ch-ua-platform":"\"Windows\"","sec-fetch-site":"same-origin","sec-fetch-mode":"cors","sec-fetch-dest":"empty","referer":"http://localhost:8080/zalo-chat?orgId=3388f0b8-7d8c-49f2-b6ff-9d45d184186e","accept-encoding":"gzip, deflate, br","accept-language":"en-US,en;q=0.9,vi;q=0.8"},"remoteAddress":"::1","remotePort":57249},"res":{"statusCode":404,"headers":{"x-powered-by":"Express","content-security-policy":"default-src 'none'","x-content-type-options":"nosniff","content-type":"text/html; charset=utf-8","content-length":149}},"responseTime":2,"msg":"request completed"}
+{"level":30,"time":1679895380263,"pid":5364,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679895381227,"pid":5364,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679902123863,"pid":8508,"hostname":"GAPIT-HieuNV","msg":"Server is running at localhost: 8080"}
+{"level":30,"time":1679902123868,"pid":8508,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-consumer connected"}
+{"level":30,"time":1679902123879,"pid":8508,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679902123941,"pid":8508,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679902124050,"pid":8508,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679902124211,"pid":8508,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679902124422,"pid":8508,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679902124676,"pid":8508,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679902124981,"pid":8508,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679902125335,"pid":8508,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679902125748,"pid":8508,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679902126208,"pid":8508,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679902126718,"pid":8508,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679902127274,"pid":8508,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679902127885,"pid":8508,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679902128545,"pid":8508,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679902129248,"pid":8508,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679902130008,"pid":8508,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679902130810,"pid":8508,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679902131663,"pid":8508,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679902490768,"pid":16088,"hostname":"GAPIT-HieuNV","msg":"Server is running at localhost: 8080"}
+{"level":30,"time":1679902490773,"pid":16088,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-consumer connected"}
+{"level":30,"time":1679902490784,"pid":16088,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679902490847,"pid":16088,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679902490959,"pid":16088,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679902491112,"pid":16088,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679902491315,"pid":16088,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679902491575,"pid":16088,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679902491886,"pid":16088,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679902492247,"pid":16088,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679902492651,"pid":16088,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679902493110,"pid":16088,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679902493622,"pid":16088,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679902494182,"pid":16088,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679902857274,"pid":11544,"hostname":"GAPIT-HieuNV","msg":"Server is running at localhost: 8080"}
+{"level":30,"time":1679902857279,"pid":11544,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-consumer connected"}
+{"level":30,"time":1679902857289,"pid":11544,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679902857348,"pid":11544,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679902857460,"pid":11544,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679902857614,"pid":11544,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679902857824,"pid":11544,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679902858083,"pid":11544,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679902858395,"pid":11544,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679902858758,"pid":11544,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679902859169,"pid":11544,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679902859627,"pid":11544,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679902860137,"pid":11544,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679902860699,"pid":11544,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679903431166,"pid":21024,"hostname":"GAPIT-HieuNV","msg":"Server is running at localhost: 8080"}
+{"level":30,"time":1679903431174,"pid":21024,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679903431178,"pid":21024,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-consumer connected"}
+{"level":30,"time":1679903431229,"pid":21024,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679903431334,"pid":21024,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679903431490,"pid":21024,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679903431700,"pid":21024,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679903431953,"pid":21024,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679903432264,"pid":21024,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679903432625,"pid":21024,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679903433030,"pid":21024,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679903433485,"pid":21024,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679904234820,"pid":17748,"hostname":"GAPIT-HieuNV","msg":"Server is running at localhost: 8080"}
+{"level":30,"time":1679904234826,"pid":17748,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-consumer connected"}
+{"level":30,"time":1679904234836,"pid":17748,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679904234837,"pid":17748,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-consumer closed"}
+{"level":30,"time":1679904234896,"pid":17748,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-consumer connected"}
+{"level":30,"time":1679904234896,"pid":17748,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679904234900,"pid":17748,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-consumer closed"}
+{"level":30,"time":1679904235006,"pid":17748,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-consumer connected"}
+{"level":30,"time":1679904235017,"pid":17748,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679904235029,"pid":17748,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-consumer closed"}
+{"level":30,"time":1679904235171,"pid":17748,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679904235181,"pid":17748,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-consumer connected"}
+{"level":30,"time":1679904235184,"pid":17748,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-consumer closed"}
+{"level":30,"time":1679904235381,"pid":17748,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679904235387,"pid":17748,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-consumer connected"}
+{"level":30,"time":1679904235389,"pid":17748,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-consumer closed"}
+{"level":30,"time":1679904235640,"pid":17748,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679904235646,"pid":17748,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-consumer connected"}
+{"level":30,"time":1679904235652,"pid":17748,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-consumer closed"}
+{"level":30,"time":1679904235951,"pid":17748,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679904235954,"pid":17748,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-consumer connected"}
+{"level":30,"time":1679904235958,"pid":17748,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-consumer closed"}
+{"level":30,"time":1679904236310,"pid":17748,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679904236313,"pid":17748,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-consumer connected"}
+{"level":30,"time":1679904236317,"pid":17748,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-consumer closed"}
+{"level":30,"time":1679904546036,"pid":13492,"hostname":"GAPIT-HieuNV","msg":"Server is running at localhost: 8080"}
+{"level":30,"time":1679904546042,"pid":13492,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-consumer connected"}
+{"level":30,"time":1679904546049,"pid":13492,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-consumer closed"}
+{"level":30,"time":1679904546052,"pid":13492,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679904546101,"pid":13492,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-consumer connected"}
+{"level":30,"time":1679904546109,"pid":13492,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-consumer closed"}
+{"level":30,"time":1679904546111,"pid":13492,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679904546213,"pid":13492,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-consumer connected"}
+{"level":30,"time":1679904546220,"pid":13492,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679904546226,"pid":13492,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-consumer closed"}
+{"level":30,"time":1679904546380,"pid":13492,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679904546383,"pid":13492,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-consumer connected"}
+{"level":30,"time":1679904546388,"pid":13492,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-consumer closed"}
+{"level":30,"time":1679904546590,"pid":13492,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679904546595,"pid":13492,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-consumer connected"}
+{"level":30,"time":1679904546606,"pid":13492,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-consumer closed"}
+{"level":30,"time":1679904546852,"pid":13492,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679904546857,"pid":13492,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-consumer connected"}
+{"level":30,"time":1679904546863,"pid":13492,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-consumer closed"}
+{"level":30,"time":1679904547161,"pid":13492,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679904547165,"pid":13492,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-consumer connected"}
+{"level":30,"time":1679904547170,"pid":13492,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-consumer closed"}
+{"level":30,"time":1679904547521,"pid":13492,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679904547524,"pid":13492,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-consumer connected"}
+{"level":30,"time":1679904547531,"pid":13492,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-consumer closed"}
+{"level":30,"time":1679904547931,"pid":13492,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679904547935,"pid":13492,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-consumer connected"}
+{"level":30,"time":1679904547941,"pid":13492,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-consumer closed"}
+{"level":30,"time":1679904548390,"pid":13492,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679904548393,"pid":13492,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-consumer connected"}
+{"level":30,"time":1679904548397,"pid":13492,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-consumer closed"}
+{"level":30,"time":1679904548898,"pid":13492,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679904548901,"pid":13492,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-consumer connected"}
+{"level":30,"time":1679904548904,"pid":13492,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-consumer closed"}
+{"level":30,"time":1679905560201,"pid":3784,"hostname":"GAPIT-HieuNV","msg":"Server is running at localhost: 8080"}
+{"level":30,"time":1679905560206,"pid":3784,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-consumer connected"}
+{"level":30,"time":1679905560218,"pid":3784,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679905560279,"pid":3784,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679905560390,"pid":3784,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679905560547,"pid":3784,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679905560750,"pid":3784,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679905561010,"pid":3784,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679905561322,"pid":3784,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679905561682,"pid":3784,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679905562086,"pid":3784,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679905562549,"pid":3784,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679905563052,"pid":3784,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679905563605,"pid":3784,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679905564209,"pid":3784,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679905564869,"pid":3784,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679905565579,"pid":3784,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679905566340,"pid":3784,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679905567152,"pid":3784,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679905920593,"pid":16272,"hostname":"GAPIT-HieuNV","msg":"Server is running at localhost: 8080"}
+{"level":30,"time":1679905920598,"pid":16272,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-consumer connected"}
+{"level":30,"time":1679905920610,"pid":16272,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679905920670,"pid":16272,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679905920776,"pid":16272,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679905920936,"pid":16272,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679905921141,"pid":16272,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679905921403,"pid":16272,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679905921706,"pid":16272,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679905922060,"pid":16272,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679905922471,"pid":16272,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679905922933,"pid":16272,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679905923437,"pid":16272,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679905923997,"pid":16272,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679907908015,"pid":4740,"hostname":"GAPIT-HieuNV","msg":"Server is running at localhost: 8080"}
+{"level":30,"time":1679907908022,"pid":4740,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-consumer connected"}
+{"level":30,"time":1679907908033,"pid":4740,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679907908092,"pid":4740,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679907908196,"pid":4740,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679907908353,"pid":4740,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679907908563,"pid":4740,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679907908825,"pid":4740,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679907909137,"pid":4740,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679907909492,"pid":4740,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679907909901,"pid":4740,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679909003505,"pid":18648,"hostname":"GAPIT-HieuNV","msg":"Server is running at localhost: 8080"}
+{"level":30,"time":1679909003509,"pid":18648,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-consumer connected"}
+{"level":30,"time":1679909003520,"pid":18648,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679909003572,"pid":18648,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679909003678,"pid":18648,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679909003832,"pid":18648,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679909004037,"pid":18648,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679909004289,"pid":18648,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679909004600,"pid":18648,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679909004965,"pid":18648,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679909005376,"pid":18648,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679909005832,"pid":18648,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679909006340,"pid":18648,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679909006898,"pid":18648,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679909007508,"pid":18648,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679909008169,"pid":18648,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679909888718,"pid":10296,"hostname":"GAPIT-HieuNV","msg":"Server is running at localhost: 8080"}
+{"level":30,"time":1679909888723,"pid":10296,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-consumer connected"}
+{"level":30,"time":1679909888733,"pid":10296,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679909888787,"pid":10296,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679909888894,"pid":10296,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679909889055,"pid":10296,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679909889263,"pid":10296,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679909889524,"pid":10296,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679909889826,"pid":10296,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679909890186,"pid":10296,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679909890596,"pid":10296,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679909891052,"pid":10296,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer closed"}
+{"level":30,"time":1679911253409,"pid":10060,"hostname":"GAPIT-HieuNV","msg":"Server is running at localhost: 8080"}
+{"level":30,"time":1679911253414,"pid":10060,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer connected"}
+{"level":30,"time":1679911253415,"pid":10060,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-consumer connected"}
+{"level":30,"time":1679911532001,"pid":1732,"hostname":"GAPIT-HieuNV","msg":"Server is running at localhost: 8080"}
+{"level":30,"time":1679911532006,"pid":1732,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer connected"}
+{"level":30,"time":1679911532006,"pid":1732,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-consumer connected"}
+{"level":30,"time":1679911538268,"pid":6700,"hostname":"GAPIT-HieuNV","msg":"Server is running at localhost: 8080"}
+{"level":30,"time":1679911538274,"pid":6700,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer connected"}
+{"level":30,"time":1679911538275,"pid":6700,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-consumer connected"}
+{"level":30,"time":1679911548722,"pid":12296,"hostname":"GAPIT-HieuNV","msg":"Server is running at localhost: 8080"}
+{"level":30,"time":1679911548727,"pid":12296,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer connected"}
+{"level":30,"time":1679911548728,"pid":12296,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-consumer connected"}
+{"level":30,"time":1679911630511,"pid":9352,"hostname":"GAPIT-HieuNV","msg":"Server is running at localhost: 8080"}
+{"level":30,"time":1679911630516,"pid":9352,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer connected"}
+{"level":30,"time":1679911630517,"pid":9352,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-consumer connected"}
+{"level":30,"time":1679911711393,"pid":8412,"hostname":"GAPIT-HieuNV","msg":"Server is running at localhost: 8080"}
+{"level":30,"time":1679911711400,"pid":8412,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer connected"}
+{"level":30,"time":1679911711401,"pid":8412,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-consumer connected"}
+{"level":30,"time":1679911770676,"pid":1856,"hostname":"GAPIT-HieuNV","msg":"Server is running at localhost: 8080"}
+{"level":30,"time":1679911770681,"pid":1856,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer connected"}
+{"level":30,"time":1679911770682,"pid":1856,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-consumer connected"}
+{"level":30,"time":1679911865638,"pid":1856,"hostname":"GAPIT-HieuNV","req":{"id":1,"method":"POST","url":"/webhook/zalo/3388f0b8-7d8c-49f2-b6ff-9d45d184186e","query":{},"params":{},"headers":{"host":"83ab-113-190-241-160.ap.ngrok.io","user-agent":"ZaloWebhook","content-length":"282","content-type":"application/json","x-forwarded-for":"118.102.2.29","x-forwarded-proto":"https","x-zevent-signature":"mac=6a7f78bd5ccacf17ebf3385bb0b1bada09e483841c866d7e8c883f785bf4c60c","accept-encoding":"gzip"},"remoteAddress":"::1","remotePort":55455},"res":{"statusCode":200,"headers":{"x-powered-by":"Express","content-type":"application/json; charset=utf-8","content-length":"2","etag":"W/\"2-vyGp6PvFo4RvsFtPoIWeCReyIC8\""}},"responseTime":26,"msg":"request completed"}
+{"level":30,"time":1679911865674,"pid":1856,"hostname":"GAPIT-HieuNV","tag":"zaloChat","attempt":1,"msg":"processed zaloChat"}
+{"level":30,"time":1679911900789,"pid":14860,"hostname":"GAPIT-HieuNV","msg":"Server is running at localhost: 8080"}
+{"level":30,"time":1679911900796,"pid":14860,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer connected"}
+{"level":30,"time":1679911900801,"pid":14860,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-consumer connected"}
+{"level":30,"time":1679911902204,"pid":14860,"hostname":"GAPIT-HieuNV","req":{"id":1,"method":"POST","url":"/webhook/zalo/3388f0b8-7d8c-49f2-b6ff-9d45d184186e","query":{},"params":{},"headers":{"host":"83ab-113-190-241-160.ap.ngrok.io","user-agent":"ZaloWebhook","content-length":"282","content-type":"application/json","x-forwarded-for":"118.102.2.29","x-forwarded-proto":"https","x-zevent-signature":"mac=4d8522d268b9c3034d50295754dcd4660cb6b184be0e5086b9e86b288e480f99","accept-encoding":"gzip"},"remoteAddress":"::1","remotePort":55462},"res":{"statusCode":200,"headers":{"x-powered-by":"Express","content-type":"application/json; charset=utf-8","content-length":"2","etag":"W/\"2-vyGp6PvFo4RvsFtPoIWeCReyIC8\""}},"responseTime":29,"msg":"request completed"}
+{"level":30,"time":1679911902211,"pid":14860,"hostname":"GAPIT-HieuNV","tag":"zaloChat","attempt":1,"msg":"processed zaloChat"}
+{"level":30,"time":1679912791964,"pid":1872,"hostname":"GAPIT-HieuNV","msg":"Server is running at localhost: 8080"}
+{"level":30,"time":1679912791969,"pid":1872,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer connected"}
+{"level":30,"time":1679912791970,"pid":1872,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-consumer connected"}
+{"level":30,"time":1679913396107,"pid":8576,"hostname":"GAPIT-HieuNV","msg":"Server is running at localhost: 8080"}
+{"level":30,"time":1679913396112,"pid":8576,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer connected"}
+{"level":30,"time":1679913396113,"pid":8576,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-consumer connected"}
+{"level":30,"time":1679913446649,"pid":3772,"hostname":"GAPIT-HieuNV","msg":"Server is running at localhost: 8080"}
+{"level":30,"time":1679913446654,"pid":3772,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer connected"}
+{"level":30,"time":1679913446655,"pid":3772,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-consumer connected"}
+{"level":30,"time":1679913543722,"pid":18608,"hostname":"GAPIT-HieuNV","msg":"Server is running at localhost: 8080"}
+{"level":30,"time":1679913543727,"pid":18608,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer connected"}
+{"level":30,"time":1679913543728,"pid":18608,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-consumer connected"}
+{"level":30,"time":1679967204880,"pid":11716,"hostname":"GAPIT-HieuNV","msg":"Server is running at localhost: 8080"}
+{"level":30,"time":1679967204884,"pid":11716,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer connected"}
+{"level":30,"time":1679967204885,"pid":11716,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-consumer connected"}
+{"level":30,"time":1679967460279,"pid":18000,"hostname":"GAPIT-HieuNV","msg":"Server is running at localhost: 8080"}
+{"level":30,"time":1679967460284,"pid":18000,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer connected"}
+{"level":30,"time":1679967460285,"pid":18000,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-consumer connected"}
+{"level":30,"time":1679967469649,"pid":16216,"hostname":"GAPIT-HieuNV","msg":"Server is running at localhost: 8080"}
+{"level":30,"time":1679967469654,"pid":16216,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer connected"}
+{"level":30,"time":1679967469655,"pid":16216,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-consumer connected"}
+{"level":30,"time":1679967479262,"pid":2652,"hostname":"GAPIT-HieuNV","msg":"Server is running at localhost: 8080"}
+{"level":30,"time":1679967479267,"pid":2652,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer connected"}
+{"level":30,"time":1679967479268,"pid":2652,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-consumer connected"}
+{"level":30,"time":1679967551985,"pid":19628,"hostname":"GAPIT-HieuNV","msg":"Server is running at localhost: 8080"}
+{"level":30,"time":1679967551990,"pid":19628,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer connected"}
+{"level":30,"time":1679967551991,"pid":19628,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-consumer connected"}
+{"level":30,"time":1679967582629,"pid":16492,"hostname":"GAPIT-HieuNV","msg":"Server is running at localhost: 8080"}
+{"level":30,"time":1679967582635,"pid":16492,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-producer connected"}
+{"level":30,"time":1679967582636,"pid":16492,"hostname":"GAPIT-HieuNV","tag":"redis","msg":"redis msg-queue-zaloChat-consumer connected"}
