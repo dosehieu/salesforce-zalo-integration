@@ -8,7 +8,7 @@ const zaloChatQueue = queueService.createQueue(`${queueName}-zaloChat`);
 // Get SaleForce Personalized data
 router.post("/zalo/:orgId", auth.verifyWebhook(), async (req, res) => {
     console.log("webhook", req.body);
-    await zaloChatQueue.add('zaloChat', req.body);
+    await zaloChatQueue.add('zaloChat', {orgId: req.params.orgId, body: req.body});
   res.json({});
 });
 
