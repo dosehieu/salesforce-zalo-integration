@@ -42,6 +42,4 @@ const processZaloChat = async (job)=>{
             break;
     }
 }
-
-
 module.exports = {processZaloChat}
