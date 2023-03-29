@@ -108,7 +108,7 @@ io.on('connection', function (socket) {
 });
 
 //port
-app.set("port", process.env.PORT || 8080);
+app.set("port", process.env.PORT || 8081);
 
 server.listen(app.get("port"), function () {
     logger.info(`Server is running at localhost: ${app.get("port")}`)
